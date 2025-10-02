@@ -3,7 +3,10 @@ import userIcon from "../assets/demo-user.png"
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 const Navbar = () => {
-    const {user} = use(AuthContext)
+    const {user, logoutUser} = use(AuthContext)
+    const handleLogOut = () => {
+        logoutUser().then(() => alert("Successfully Logged Out")).catch((error) => {console.log(error)})
+    } 
     return (
         <div className='w-11/12 mx-auto grid grid-cols-3'>
             <div>{user && user.email}</div>
@@ -12,7 +15,8 @@ const Navbar = () => {
                 <NavLink to="/about">About</NavLink>
                 <NavLink to="/career">Career</NavLink>
             </div>
-            <div className='flex gap-2 justify-end items-center'><img src={userIcon} alt="user" /><Link to = "/auth/login" className='btn btn-primary'>Log in</Link></div>
+            <div className='flex gap-2 justify-end items-center'><img src={userIcon} alt="user" />{user? <button onClick = {handleLogOut} className='btn btn-primary'>Log Out</button> : <Link to = "/auth/login" className='btn btn-primary'>Log in</Link>}
+            </div>
         </div>
     );
 };
