@@ -21,6 +21,7 @@ const NewsDetails = () => {
             </header>
             <main className='w-11/12 mx-auto grid grid-cols-4 gap-5'>
                 <section className='col-span-3'>
+                    <h2 className='text-2xl font-semibold'>News Details</h2>
                     <NewsDetailsCard news={news}></NewsDetailsCard>
                 </section>
                 <aside>

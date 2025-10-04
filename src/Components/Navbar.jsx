@@ -15,7 +15,7 @@ const Navbar = () => {
                 <NavLink to="/about">About</NavLink>
                 <NavLink to="/career">Career</NavLink>
             </div>
-            <div className='flex gap-2 justify-end items-center'><img src={userIcon} alt="user" />{user? <button onClick = {handleLogOut} className='btn btn-primary'>Log Out</button> : <Link to = "/auth/login" className='btn btn-primary'>Log in</Link>}
+            <div className='flex gap-2 justify-end items-center'><img className='w-8' src={`${user ? user.photoURL : userIcon}`} alt="user" />{user? <button onClick = {handleLogOut} className='btn btn-primary'>Log Out</button> : <Link to = "/auth/login" className='btn btn-primary'>Log in</Link>}
             </div>
         </div>
     );
